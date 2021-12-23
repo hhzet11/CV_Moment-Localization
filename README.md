@@ -91,7 +91,6 @@ python moment_localization/test.py --cfg experiments/tacos/2D-TAN-128x128-K5L8-p
 ```
 
 ## Citation
-If any part of our paper and code is helpful to your work, please generously cite with:
 ```
 @InProceedings{2DTAN_2020_AAAI,
 author = {Zhang, Songyang and Peng, Houwen and Fu, Jianlong and Luo, Jiebo},
