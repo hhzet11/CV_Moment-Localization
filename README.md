@@ -75,9 +75,7 @@ python moment_localization/train.py --cfg experiments/tacos/2D-TAN-128x128-K5L8-
 ```
 
 #### Testing
-Our trained model are provided in [box drive](https://rochester.box.com/s/5cfp7a5snvl9uky30bu7mn1cb381w91v). Please download them to the `checkpoints` folder.
-
-Then, run the following commands for evaluation: 
+Run the following commands for evaluation: 
 ```
 # Evaluate "Pool" in Table 1
 python moment_localization/test.py --cfg experiments/charades/2D-TAN-16x16-K5L8-pool.yaml --verbose --split test
