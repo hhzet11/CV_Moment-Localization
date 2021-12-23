@@ -7,15 +7,19 @@ As various types of unstructured data, such as life logging, increase with the d
 ## Method
 ![image](https://user-images.githubusercontent.com/57340671/147183105-d1483789-2567-49ce-8f74-ea3825e6e3fd.png)
 
-1) MoL + R : Moment localization with Residual block
+### 1) MoL + R : Moment localization with Residual block
+
 We constructed a Temporal adjective network by reflecting the Residual block. Additionally adding only residual information to the learned function before transferring the block-by-block parameters. Therefore, learning became easier than learning the whole. In addition, in the case of the previous method, since all weight layers are separated when learning the whole, the difficulty of convergence increased by learning for each layer, and convergence became easier by using residual blocks. By directly inserting information about the previous input x each block, the information on the original video and the natural language query can be consistently maintained.
+
 
 ![image](https://user-images.githubusercontent.com/57340671/147183175-fa99a671-d796-458f-8f60-a58a1067e134.png)
 
-2) MoL + D : Moment localization with Dense layer
+### 2) MoL + D : Moment localization with Dense layer
 We applied the Dense layer by advancing one step further from the network of Moment localization with residual block. In the Dense layer, like Residual blocks, one block consists of two convolution networks. Unlike the Residual block, which adds the outputs of the previous block, F(x) and x, it adds the input of all passed blocks. It represented as 
 
+
 $H(x)=F(x_{n-1})+\sum_{i=1}^{n-1}x_{i}$
+
 
 A temporal adjective network is configured by replacing the convolution layer of the previous model with 4 Dense layers. Dense Layer concatenates the feature map of the previous layer to the feature map of all layers that appear thereafter. Through this configuration, the effect of regularization can also be seen because it prevents loss of information, such as alleviating the vanishing gradient problem, and learns by connecting feature maps of various layers.
 
@@ -45,12 +49,15 @@ A temporal adjective network is configured by replacing the convolution layer of
 | MoL + D | 48.09 | 36.49 | 25.12 | 73.11 | 57.79 | 45.51 |
 
 
+
 ## Prerequisites
 - pytorch 1.1.0
 - python 3.7
 - torchtext
 - easydict
 - terminaltables
+
+
 
 
 #### Training
